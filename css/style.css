@@ -1,7 +1,21 @@
+/* ===== 폰트 등록 ===== */
+@font-face {
+  font-family: 'Cafe24Oneprettynight';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Cafe24Oneprettynight.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'JalnanGothic';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/JalnanGothic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* ===== 기본 스타일 ===== */
 body {
-  font-family: 'Nanum Gothic', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-  background-color: #fff0f5; /* 연분홍 */
+  font-family: 'Cafe24Oneprettynight', sans-serif;
+  background-color: #fff0f5;
   margin: 0;
   padding: 0;
   color: #333;
@@ -9,7 +23,7 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: 'Segoe UI', 'Malgun Gothic', sans-serif;
+  font-family: 'JalnanGothic', sans-serif;
 }
 
 /* ===== 상단 메뉴 ===== */
