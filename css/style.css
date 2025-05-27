@@ -1,6 +1,6 @@
 body {
-  font-family: 'Nanum Pen Script', cursive;
-  background-color: #fef9d7;
+  font-family: 'Cafe24Oneprettynight';
+  background-color: #fff0f5;
   margin: 0;
   padding: 0;
   color: #333;
@@ -11,9 +11,10 @@ header nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #e6f5d0;
+  background-color: #d6f0ff;
   padding: 10px 0;
   z-index: 999;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
@@ -28,7 +29,11 @@ nav ul {
 nav ul li a {
   text-decoration: none;
   font-size: 18px;
-  color: #333;
+  color: #444;
+  transition: color 0.3s;
+}
+nav ul li a:hover {
+  color: #ff69b4;
 }
 
 section {
@@ -36,7 +41,22 @@ section {
 }
 
 footer {
-  background-color: #e6f5d0;
+  background-color: #d6f0ff;
   padding: 30px 10px;
   font-size: 16px;
+  color: #444;
+}
+
+#bgm-toggle {
+  font-size: 20px;
+  background-color: #f8c8dc;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+#bgm-toggle:hover {
+  background-color: #ffd6e8;
 }
