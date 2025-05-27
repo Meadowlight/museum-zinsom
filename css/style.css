@@ -1,21 +1,7 @@
-/* ===== 폰트 등록 ===== */
-@font-face {
-  font-family: 'UhBeeSeulvely';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-one@1.0/UhBeeSeulvely.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'JalnanGothic';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/JalnanGothic.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* ===== 기본 스타일 ===== */
 body {
-  font-family: 'UhBeeSeulvely';
-  background-color: #fff0f5;
+  font-family: 'Nanum Gothic', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  background-color: #fff0f5; /* 연분홍 */
   margin: 0;
   padding: 0;
   color: #333;
@@ -23,14 +9,15 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: 'JalnanGothic';
+  font-family: 'Segoe UI', 'Malgun Gothic', sans-serif;
 }
 
+/* ===== 상단 메뉴 ===== */
 header nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #d6f0ff;
+  background-color: #d6f0ff; /* 하늘색 */
   padding: 10px 0;
   z-index: 999;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -55,10 +42,12 @@ nav ul li a:hover {
   color: #ff69b4;
 }
 
+/* ===== 본문 섹션 ===== */
 section {
   padding: 100px 20px 50px;
 }
 
+/* ===== 하단 푸터 ===== */
 footer {
   background-color: #d6f0ff;
   padding: 30px 10px;
@@ -66,9 +55,10 @@ footer {
   color: #444;
 }
 
+/* ===== BGM 버튼 ===== */
 #bgm-toggle {
   font-size: 20px;
-  background-color: #f8c8dc;
+  background-color: #f8c8dc; /* 베이비핑크 */
   border: none;
   border-radius: 50%;
   padding: 10px 15px;
@@ -80,6 +70,7 @@ footer {
   background-color: #ffd6e8;
 }
 
+/* ===== 전시관 썸네일 ===== */
 .gallery a {
   display: inline-block;
   margin: 10px 15px;
