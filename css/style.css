@@ -1,4 +1,18 @@
-/* 기본 설명/본문용 */
+/* ===== 폰트 등록 ===== */
+@font-face {
+  font-family: 'UhBeeSeulvely';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-one@1.0/UhBeeSeulvely.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'JalnanGothic';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/JalnanGothic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ===== 기본 스타일 ===== */
 body {
   font-family: 'UhBeeSeulvely';
   background-color: #fff0f5;
@@ -8,7 +22,6 @@ body {
   text-align: center;
 }
 
-/* 제목만 따로 지정 */
 h1, h2, h3 {
   font-family: 'JalnanGothic';
 }
@@ -65,4 +78,22 @@ footer {
 }
 #bgm-toggle:hover {
   background-color: #ffd6e8;
+}
+
+.gallery a {
+  display: inline-block;
+  margin: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.gallery img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
