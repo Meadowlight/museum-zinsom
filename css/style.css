@@ -1,10 +1,17 @@
 body {
-  font-family: 'Cafe24Oneprettynight';
+/* 기본 설명/본문용 */
+body {
+  font-family: 'UhBeeSeulvely';
   background-color: #fff0f5;
   margin: 0;
   padding: 0;
   color: #333;
   text-align: center;
+}
+
+/* 제목만 따로 지정 */
+h1, h2, h3 {
+  font-family: 'JalnanGothic';
 }
 
 header nav {
