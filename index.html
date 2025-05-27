@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>찐솜의 박물관</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 로딩 애니메이션 -->
+  <div id="loading-screen">박물관을 여는 중입니다...</div>
+
+  <!-- 상단 메뉴 -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#exhibit">전시관</a></li>
+        <li><a href="guestbook.html" target="_blank">방명록</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 메인 상단 -->
+  <section id="home">
+    <h1>&lt;찐솜의 박물관&gt;</h1>
+    <p>우리의 우정을 기억하는 공간에 온 걸 환영해!</p>
+    <button id="bgm-toggle">🎵</button>
+  </section>
+
+  <!-- 전시관 -->
+  <section id="exhibit">
+    <h2>전시관</h2>
+    <p>우정의 추억을 ‘전시’하는 공간!</p>
+    <div class="gallery">
+      <a href="photo.html" target="_blank"><img src="img/icon1.png" alt="사진관"> 1관: 사진관</a>
+      <a href="video.html" target="_blank"><img src="img/icon2.png" alt="영상관"> 2관: 영상 아카이브</a>
+      <a href="letters.html" target="_blank"><img src="img/icon3.png" alt="편지관"> 3관: 손편지 보관소</a>
+      <a href="objects.html" target="_blank"><img src="img/icon4.png" alt="물건관"> 4관: 추억의 물건 전시</a>
+    </div>
+  </section>
+
+  <!-- 하단 문구 -->
+  <footer>
+    <p>'시간이 흘러도 잊히지 않도록, 우리의 우정을 천천히 돌아볼 수 있는 곳'</p>
+    <p>찐솜의 박물관은 우리가 나눈 수많은 순간들을 전시하는 공간입니다.</p>
+  </footer>
+
+  <audio id="bgm" src="audio/bgm.mp3" loop></audio>
+  <script src="js/main.js"></script>
+</body>
+</html>
