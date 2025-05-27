@@ -5,19 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>찐솜의 박물관</title>
 
-  <!-- 외부 스타일시트 -->
+  <!-- 스타일시트 -->
   <link rel="stylesheet" href="css/style.css" />
 
-  <!-- 폰트: UhBee Seulvely (설명용) -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-one@1.0/UhBeeSeulvely.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- 폰트: JalnanGothic (제목용) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/JalnanGothic.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- 폰트 직접 적용용 @font-face는 CSS에서 처리됨 -->
 </head>
 <body>
-  <!-- 로딩 애니메이션 -->
-  <div id="loading-screen" style="display:none;">박물관을 여는 중입니다...</div>
+  <!-- 로딩 화면 -->
+  <div id="loading-screen" style="display: none;">박물관을 여는 중입니다...</div>
 
   <!-- 상단 메뉴 -->
   <header>
@@ -30,7 +25,7 @@
     </nav>
   </header>
 
-  <!-- 메인 상단 -->
+  <!-- 메인 인사 -->
   <section id="home">
     <h1>&lt;찐솜의 박물관&gt;</h1>
     <p>우리의 우정을 기억하는 공간에 온 걸 환영해!</p>
@@ -49,16 +44,16 @@
     </div>
   </section>
 
-  <!-- 하단 문구 -->
+  <!-- 푸터 -->
   <footer>
     <p>'시간이 흘러도 잊히지 않도록, 우리의 우정을 천천히 돌아볼 수 있는 곳'</p>
     <p>찐솜의 박물관은 우리가 나눈 수많은 순간들을 전시하는 공간입니다.</p>
   </footer>
 
-  <!-- BGM -->
+  <!-- 배경 음악 -->
   <audio id="bgm" src="audio/bgm.mp3" loop></audio>
 
-  <!-- 메인 스크립트 -->
+  <!-- 자바스크립트 -->
   <script src="js/main.js"></script>
 </body>
 </html>
