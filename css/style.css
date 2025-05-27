@@ -1,13 +1,14 @@
 /* ===== 폰트 등록 ===== */
 @font-face {
   font-family: 'Cafe24Oneprettynight';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Cafe24Oneprettynight.woff2') format('woff2');
+  src: url('../fonts/Cafe24Oneprettynight-v2.0.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
-  font-family: 'JalnanGothic';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/JalnanGothic.woff2') format('woff2');
+  font-family: 'Cafe24Ssurround';
+  src: url('../fonts/Cafe24Ssurround-v2.0.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -22,8 +23,9 @@ body {
   text-align: center;
 }
 
+/* ===== 제목 스타일 ===== */
 h1, h2, h3 {
-  font-family: 'JalnanGothic', sans-serif;
+  font-family: 'Cafe24Ssurround', sans-serif;
 }
 
 /* ===== 상단 메뉴 ===== */
@@ -31,7 +33,7 @@ header nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #d6f0ff; /* 하늘색 */
+  background-color: #d6f0ff;
   padding: 10px 0;
   z-index: 999;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -56,7 +58,7 @@ nav ul li a:hover {
   color: #ff69b4;
 }
 
-/* ===== 본문 섹션 ===== */
+/* ===== 본문 영역 ===== */
 section {
   padding: 100px 20px 50px;
 }
@@ -72,7 +74,7 @@ footer {
 /* ===== BGM 버튼 ===== */
 #bgm-toggle {
   font-size: 20px;
-  background-color: #f8c8dc; /* 베이비핑크 */
+  background-color: #f8c8dc;
   border: none;
   border-radius: 50%;
   padding: 10px 15px;
