@@ -1,108 +1,64 @@
-/* ===== 폰트 등록 ===== */
-@font-face {
-  font-family: 'UhBeeSeulvely';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-one@1.0/UhBeeSeulvely.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>찐솜의 박물관</title>
 
-@font-face {
-  font-family: 'JalnanGothic';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/JalnanGothic.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
+  <!-- 외부 스타일시트 -->
+  <link rel="stylesheet" href="css/style.css" />
 
-/* ===== 기본 스타일 ===== */
-body {
-  font-family: 'UhBeeSeulvely';
-  background-color: #fff0f5; /* 연분홍 */
-  margin: 0;
-  padding: 0;
-  color: #333;
-  text-align: center;
-}
+  <!-- 폰트: UhBee Seulvely (설명용) -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-one@1.0/UhBeeSeulvely.woff2" as="font" type="font/woff2" crossorigin>
 
-/* ===== 제목용 폰트 ===== */
-h1, h2, h3 {
-  font-family: 'JalnanGothic';
-}
+  <!-- 폰트: JalnanGothic (제목용) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/JalnanGothic.woff2" as="font" type="font/woff2" crossorigin>
+</head>
+<body>
+  <!-- 로딩 애니메이션 -->
+  <div id="loading-screen" style="display:none;">박물관을 여는 중입니다...</div>
 
-/* ===== 상단 메뉴 ===== */
-header nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #d6f0ff; /* 하늘색 */
-  padding: 10px 0;
-  z-index: 999;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+  <!-- 상단 메뉴 -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#exhibit">전시관</a></li>
+        <li><a href="guestbook.html" target="_blank">방명록</a></li>
+      </ul>
+    </nav>
+  </header>
 
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
+  <!-- 메인 상단 -->
+  <section id="home">
+    <h1>&lt;찐솜의 박물관&gt;</h1>
+    <p>우리의 우정을 기억하는 공간에 온 걸 환영해!</p>
+    <button id="bgm-toggle">🎵</button>
+  </section>
 
-nav ul li a {
-  text-decoration: none;
-  font-size: 18px;
-  color: #444;
-  transition: color 0.3s;
-}
+  <!-- 전시관 -->
+  <section id="exhibit">
+    <h2>전시관</h2>
+    <p>우정의 추억을 ‘전시’하는 공간!</p>
+    <div class="gallery">
+      <a href="photo.html" target="_blank"><img src="img/icon1.png" alt="사진관"> 1관: 사진관</a>
+      <a href="video.html" target="_blank"><img src="img/icon2.png" alt="영상관"> 2관: 영상 아카이브</a>
+      <a href="letters.html" target="_blank"><img src="img/icon3.png" alt="편지관"> 3관: 손편지 보관소</a>
+      <a href="objects.html" target="_blank"><img src="img/icon4.png" alt="물건관"> 4관: 추억의 물건 전시</a>
+    </div>
+  </section>
 
-nav ul li a:hover {
-  color: #ff69b4; /* 핑크 포인트 */
-}
+  <!-- 하단 문구 -->
+  <footer>
+    <p>'시간이 흘러도 잊히지 않도록, 우리의 우정을 천천히 돌아볼 수 있는 곳'</p>
+    <p>찐솜의 박물관은 우리가 나눈 수많은 순간들을 전시하는 공간입니다.</p>
+  </footer>
 
-/* ===== 섹션 ===== */
-section {
-  padding: 100px 20px 50px;
-}
+  <!-- BGM -->
+  <audio id="bgm" src="audio/bgm.mp3" loop></audio>
 
-/* ===== 푸터 ===== */
-footer {
-  background-color: #d6f0ff;
-  padding: 30px 10px;
-  font-size: 16px;
-  color: #444;
-}
-
-/* ===== BGM 버튼 ===== */
-#bgm-toggle {
-  font-size: 20px;
-  background-color: #f8c8dc; /* 베이비핑크 */
-  border: none;
-  border-radius: 50%;
-  padding: 10px 15px;
-  cursor: pointer;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s;
-}
-
-#bgm-toggle:hover {
-  background-color: #ffd6e8;
-}
-
-/* ===== 전시관 썸네일 이미지 ===== */
-.gallery a {
-  display: inline-block;
-  margin: 10px 15px;
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-}
-
-.gallery img {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  margin-bottom: 5px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+  <!-- 메인 스크립트 -->
+  <script src="js/main.js"></script>
+</body>
+</html>
