@@ -1,8 +1,109 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>방명록</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      background-color: #f0f8ff;
+      font-family: 'Cafe24Oneprettynight', sans-serif;
+      padding: 80px 20px;
+      color: #333;
+      text-align: center;
+    }
+    h1 {
+      font-family: 'Cafe24Ssurround', sans-serif;
+      font-size: 28px;
+      margin-bottom: 40px;
+    }
+    .guestbook-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+    .guestbook-section {
+      background: white;
+      border: 2px dashed #add8e6;
+      border-radius: 20px;
+      padding: 30px 20px;
+      width: 320px;
+      box-shadow: 3px 3px 10px rgba(0,0,0,0.05);
+    }
+    .guestbook-section h2 {
+      color: #5a9bd4;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    textarea {
+      width: 90%;
+      height: 100px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      resize: none;
+      font-family: inherit;
+      font-size: 14px;
+    }
+    .guestbook-section button {
+      margin-top: 12px;
+      padding: 8px 16px;
+      background-color: #add8e6;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .entries {
+      margin-top: 20px;
+      text-align: left;
+      padding: 0 10px;
+      font-size: 14px;
+      color: #555;
+    }
+    .entry {
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌼 우리의 작은 일기장</h1>
+  <div class="guestbook-wrapper">
+    <div class="guestbook-section" id="toZzin">
+      <h2>✉️ 찐에게</h2>
+      <textarea id="inputZzin" placeholder="따뜻한 말을 남겨주세요..."></textarea>
+      <br />
+      <button onclick="saveEntry('Zzin')">전송</button>
+      <div class="entries" id="entriesZzin"></div>
+    </div>
 
+    <div class="guestbook-section" id="toSom">
+      <h2>✉️ 솜에게</h2>
+      <textarea id="inputSom" placeholder="사랑스러운 말을 남겨주세요..."></textarea>
+      <br />
+      <button onclick="saveEntry('Som')">전송</button>
+      <div class="entries" id="entriesSom"></div>
+    </div>
+  </div>
+
+  <script>
+    function saveEntry(target) {
+      const input = document.getElementById(`input${target}`);
+      const value = input.value.trim();
+      if (!value) return;
+
+      const entries = document.getElementById(`entries${target}`);
+      const entry = document.createElement('div');
+      entry.className = 'entry';
+      entry.textContent = value;
+
+      entries.prepend(entry);
+      input.value = '';
+    }
+  </script>
 </body>
-
 </html>
