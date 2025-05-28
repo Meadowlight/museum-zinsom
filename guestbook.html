@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🌼 우리의 작은 일기장</title>
+  <title>🌷 우리의 작은 일기장 🌷</title>
   <link rel="stylesheet" href="css/style.css" />
   <style>
     body {
@@ -105,77 +105,6 @@
       background-color: #eaf6ff;
     }
   </style>
-
-  <!-- Firebase SDK -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getFirestore, collection, addDoc, getDocs, deleteDoc, updateDoc, doc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT.appspot.com",
-      messagingSenderId: "YOUR_SENDER_ID",
-      appId: "YOUR_APP_ID"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    async function loadEntries(target) {
-      const snap = await getDocs(collection(db, target));
-      const container = document.getElementById(`entries-${target}`);
-      container.innerHTML = '';
-      snap.forEach((docSnap) => {
-        const data = docSnap.data();
-        const div = document.createElement('div');
-        div.className = 'entry';
-        div.innerHTML = `
-          <div contenteditable="false" class="msg" id="msg-${docSnap.id}">${data.message}</div>
-          <div class="actions">
-            <button onclick="editEntry('${target}', '${docSnap.id}')">수정</button>
-            <button onclick="deleteEntry('${target}', '${docSnap.id}')">삭제</button>
-          </div>
-        `;
-        container.appendChild(div);
-      });
-    }
-
-    window.addEntry = async function (target) {
-      const input = document.getElementById(`input-${target}`);
-      if (input.value.trim() === '') return;
-      await addDoc(collection(db, target), {
-        message: input.value.trim(),
-        timestamp: serverTimestamp()
-      });
-      input.value = '';
-      loadEntries(target);
-    };
-
-    window.deleteEntry = async function (target, id) {
-      await deleteDoc(doc(db, target, id));
-      loadEntries(target);
-    };
-
-    window.editEntry = function (target, id) {
-      const msgEl = document.getElementById(`msg-${id}`);
-      if (msgEl.contentEditable === 'true') {
-        updateDoc(doc(db, target, id), {
-          message: msgEl.innerText.trim()
-        });
-        msgEl.contentEditable = 'false';
-      } else {
-        msgEl.contentEditable = 'true';
-        msgEl.focus();
-      }
-    };
-
-    window.onload = () => {
-      loadEntries('jjin');
-      loadEntries('ssom');
-    };
-  </script>
 </head>
 <body>
   <h1>🌷우리의 작은 일기장🌷</h1>
@@ -184,16 +113,19 @@
     <div class="guest-section" id="to-jjin">
       <h2>🎀찐에게</h2>
       <textarea id="input-jjin" placeholder="✏️하고 싶은 말을 작성해보세요."></textarea>
-      <button onclick="addEntry('jjin')">작성</button>
+      <button id="btn-jjin">작성</button>
       <div id="entries-jjin"></div>
     </div>
 
     <div class="guest-section" id="to-ssom">
       <h2>🎀솜에게</h2>
       <textarea id="input-ssom" placeholder="✏️하고 싶은 말을 작성해보세요."></textarea>
-      <button onclick="addEntry('ssom')">작성</button>
+      <button id="btn-ssom">작성</button>
       <div id="entries-ssom"></div>
     </div>
   </div>
+
+  <!-- Firebase guestbook script -->
+  <script type="module" src="js/guestbook.js"></script>
 </body>
 </html>
