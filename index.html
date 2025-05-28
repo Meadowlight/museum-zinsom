@@ -23,21 +23,21 @@
     </nav>
   </header>
 
-<!-- 메인 인사 -->
-<section id="home">
-  <h1>&lt;찐솜의 박물관&gt;</h1>
-  <p>우리의 우정을 기억하는 공간에 온 걸 환영해!</p>
-  <button id="bgm-toggle">🎵</button>
+  <!-- 메인 인사 -->
+  <section id="home">
+    <h1>&lt;찐솜의 박물관&gt;</h1>
+    <p>우리의 우정을 기억하는 공간에 온 걸 환영해!</p>
+    <button id="bgm-toggle">🎵</button>
 
-  <!-- 하트 사진 -->
-  <div class="heart-photo">
-    <img src="img/friends1.png" alt="우리의 사진" />
-  </div>
-  <p style="font-size: 14px; color: #888; margin-top: 10px;">
-    "이날 진짜 즐거웠지💗"
-  </p>
-</section>
-  
+    <!-- 하트 사진 -->
+    <div class="heart-photo">
+      <img src="img/friends1.png" alt="우리의 사진" />
+    </div>
+    <p style="font-size: 14px; color: #888; margin-top: 10px;">
+      "이날 진짜 즐거웠지💗"
+    </p>
+  </section>
+
   <!-- 전시관 -->
   <section id="exhibit">
     <h2>전시관</h2>
@@ -51,44 +51,25 @@
   </section>
 
   <!-- 푸터 -->
-<footer>
-  <p>
-    '시간이 흘러도 잊히지 않도록,<br>
-    우리의 우정을 천천히 돌아볼 수 있는 곳'
-  </p>
-  <p>
-    찐솜의 박물관은 우리가 나눈 수많은 순간들을<br>
-    전시하는 공간입니다.
-  </p>
-</footer>
+  <footer>
+    <p>
+      '시간이 흘러도 잊히지 않도록,<br>
+      우리의 우정을 천천히 돌아볼 수 있는 곳'
+    </p>
+    <p>
+      찐솜의 박물관은 우리가 나눈 수많은 순간들을<br>
+      전시하는 공간입니다.
+    </p>
+  </footer>
 
   <!-- 배경 음악 -->
   <audio id="bgm" src="audio/bgm-spring-memory.mp3" loop></audio>
 
   <!-- 자바스크립트 -->
   <script src="js/main.js"></script>
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
 
-<!-- 너가 만든 JS 파일 -->
-<script src="js/guestbook.js"></script>
-const firebaseConfig = {
-  apiKey: "AIza....", // 네 Firebase 콘솔에서 복사
-  authDomain: "zzinsom-diary.firebaseapp.com",
-  projectId: "zzinsom-diary",
-  storageBucket: "zzinsom-diary.appspot.com",
-  messagingSenderId: "1234567890",
-  appId: "1:1234567890:web:abcdef123456"
-};  
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if true;
-    }
-  }
-}
-  
+  <!-- ✅ guestbook.js는 guestbook.html에서만 불러올 것 -->
+  <!-- ✅ Firebase SDK도 guestbook.html에서만 필요함 -->
+
 </body>
 </html>
