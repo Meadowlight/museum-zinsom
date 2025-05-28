@@ -18,6 +18,7 @@
       font-family: 'Cafe24Ssurround', sans-serif;
       color: #5ab0e9;
       margin-bottom: 10px;
+      text-align: center;
     }
 
     .guestbook-container {
@@ -70,6 +71,7 @@
       border-radius: 8px;
       margin-top: 10px;
       position: relative;
+      transition: background-color 0.2s ease;
     }
 
     .entry .actions {
@@ -85,27 +87,27 @@
       border: none;
       color: #5ab0e9;
       cursor: pointer;
+    }
 
-      .entry[contenteditable="true"] {
-  border: 1px dashed #5ab0e9;
-  background-color: #eaf6ff;
-
+    .entry[contenteditable="true"] {
+      border: 1px dashed #5ab0e9;
+      background-color: #eaf6ff;
     }
   </style>
 </head>
 <body>
-  <h1>🌼우리의 작은 일기장</h1>
+  <h1>🌼 우리의 작은 일기장</h1>
   <div class="guestbook-container">
     <div class="guest-section" id="to-jjin">
-      <h2>🎀찐에게</h2>
-      <textarea id="input-jjin" placeholder="😊하고 싶은 말을 작성해보세요."></textarea>
+      <h2>🎀 찐에게</h2>
+      <textarea id="input-jjin" placeholder="😊 하고 싶은 말을 작성해보세요."></textarea>
       <button onclick="addEntry('jjin')">작성</button>
       <div id="entries-jjin"></div>
     </div>
 
     <div class="guest-section" id="to-ssom">
-      <h2>🎀솜에게</h2>
-      <textarea id="input-ssom" placeholder="😊하고 싶은 말을 작성해보세요."></textarea>
+      <h2>🎀 솜에게</h2>
+      <textarea id="input-ssom" placeholder="😊 하고 싶은 말을 작성해보세요."></textarea>
       <button onclick="addEntry('ssom')">작성</button>
       <div id="entries-ssom"></div>
     </div>
@@ -150,7 +152,6 @@
     function editEntry(target, index) {
       const msgEl = document.getElementById(`msg-${target}-${index}`);
       if (msgEl.contentEditable === 'true') {
-        // 저장하기
         const list = JSON.parse(localStorage.getItem(target) || '[]');
         list[index] = msgEl.innerText;
         localStorage.setItem(target, JSON.stringify(list));
