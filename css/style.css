@@ -187,3 +187,44 @@ footer {
   }
 }
 
+.polaroid-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.polaroid {
+  width: 180px;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px 10px 18px;
+  border-radius: 8px;
+  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.polaroid:hover {
+  transform: scale(1.03);
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.polaroid .caption {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #444;
+  font-family: 'Cafe24Oneprettynight', sans-serif;
+}
+
+.polaroid img:hover {
+  opacity: 0.95;
+  filter: brightness(1.05);
+}
