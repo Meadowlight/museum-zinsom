@@ -3,107 +3,167 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>방명록</title>
+  <title>🌼 우리의 작은 일기장</title>
   <link rel="stylesheet" href="css/style.css" />
   <style>
     body {
-      background-color: #f0f8ff;
       font-family: 'Cafe24Oneprettynight', sans-serif;
-      padding: 80px 20px;
+      background-color: #fff0f5;
       color: #333;
-      text-align: center;
+      margin: 0;
+      padding: 20px;
     }
+
     h1 {
       font-family: 'Cafe24Ssurround', sans-serif;
-      font-size: 28px;
-      margin-bottom: 40px;
+      color: #5ab0e9;
+      margin-bottom: 10px;
     }
-    .guestbook-wrapper {
+
+    .guestbook-container {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 40px;
+      margin-top: 40px;
     }
-    .guestbook-section {
-      background: white;
-      border: 2px dashed #add8e6;
-      border-radius: 20px;
-      padding: 30px 20px;
-      width: 320px;
-      box-shadow: 3px 3px 10px rgba(0,0,0,0.05);
+
+    .guest-section {
+      background: #ffffff;
+      border: 2px solid #d6f0ff;
+      border-radius: 12px;
+      width: 300px;
+      padding: 20px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
     }
-    .guestbook-section h2 {
-      color: #5a9bd4;
-      font-size: 22px;
-      margin-bottom: 20px;
+
+    .guest-section h2 {
+      color: #5ab0e9;
+      margin-bottom: 10px;
+      font-size: 20px;
     }
-    textarea {
-      width: 90%;
+
+    .guest-section textarea {
+      width: 100%;
       height: 100px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
       padding: 10px;
+      font-family: 'Cafe24Oneprettynight';
+      font-size: 14px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
       resize: none;
-      font-family: inherit;
-      font-size: 14px;
     }
-    .guestbook-section button {
-      margin-top: 12px;
-      padding: 8px 16px;
-      background-color: #add8e6;
+
+    .guest-section button {
+      margin-top: 10px;
+      padding: 6px 12px;
+      background-color: #5ab0e9;
+      color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 14px;
     }
-    .entries {
-      margin-top: 20px;
-      text-align: left;
-      padding: 0 10px;
-      font-size: 14px;
-      color: #555;
-    }
+
     .entry {
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 1px dashed #ccc;
+      background: #f0faff;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    .entry .actions {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+    }
+
+    .entry .actions button {
+      margin-left: 4px;
+      font-size: 12px;
+      background: none;
+      border: none;
+      color: #5ab0e9;
+      cursor: pointer;
+
+      .entry[contenteditable="true"] {
+  border: 1px dashed #5ab0e9;
+  background-color: #eaf6ff;
+
     }
   </style>
 </head>
 <body>
-  <h1>🌼 우리의 작은 일기장</h1>
-  <div class="guestbook-wrapper">
-    <div class="guestbook-section" id="toZzin">
-      <h2>✉️ 찐에게</h2>
-      <textarea id="inputZzin" placeholder="따뜻한 말을 남겨주세요..."></textarea>
-      <br />
-      <button onclick="saveEntry('Zzin')">전송</button>
-      <div class="entries" id="entriesZzin"></div>
+  <h1>🎀찐에게 / 🎀솜에게</h1>
+  <div class="guestbook-container">
+    <div class="guest-section" id="to-jjin">
+      <h2>🎀찐에게</h2>
+      <textarea id="input-jjin" placeholder="😊찐에게 메시지 남기기"></textarea>
+      <button onclick="addEntry('jjin')">작성</button>
+      <div id="entries-jjin"></div>
     </div>
 
-    <div class="guestbook-section" id="toSom">
-      <h2>✉️ 솜에게</h2>
-      <textarea id="inputSom" placeholder="사랑스러운 말을 남겨주세요..."></textarea>
-      <br />
-      <button onclick="saveEntry('Som')">전송</button>
-      <div class="entries" id="entriesSom"></div>
+    <div class="guest-section" id="to-ssom">
+      <h2>🎀솜에게</h2>
+      <textarea id="input-ssom" placeholder="😊솜에게 메시지 남기기"></textarea>
+      <button onclick="addEntry('ssom')">작성</button>
+      <div id="entries-ssom"></div>
     </div>
   </div>
 
   <script>
-    function saveEntry(target) {
-      const input = document.getElementById(`input${target}`);
-      const value = input.value.trim();
-      if (!value) return;
-
-      const entries = document.getElementById(`entries${target}`);
-      const entry = document.createElement('div');
-      entry.className = 'entry';
-      entry.textContent = value;
-
-      entries.prepend(entry);
-      input.value = '';
+    function loadEntries(target) {
+      const list = JSON.parse(localStorage.getItem(target) || '[]');
+      const container = document.getElementById(`entries-${target}`);
+      container.innerHTML = '';
+      list.forEach((msg, i) => {
+        const div = document.createElement('div');
+        div.className = 'entry';
+        div.innerHTML = `
+          <div contenteditable="false" class="msg" id="msg-${target}-${i}">${msg}</div>
+          <div class="actions">
+            <button onclick="editEntry('${target}', ${i})">수정</button>
+            <button onclick="deleteEntry('${target}', ${i})">삭제</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
     }
+
+    function addEntry(target) {
+      const input = document.getElementById(`input-${target}`);
+      if (input.value.trim() === '') return;
+      const list = JSON.parse(localStorage.getItem(target) || '[]');
+      list.push(input.value.trim());
+      localStorage.setItem(target, JSON.stringify(list));
+      input.value = '';
+      loadEntries(target);
+    }
+
+    function deleteEntry(target, index) {
+      const list = JSON.parse(localStorage.getItem(target) || '[]');
+      list.splice(index, 1);
+      localStorage.setItem(target, JSON.stringify(list));
+      loadEntries(target);
+    }
+
+    function editEntry(target, index) {
+      const msgEl = document.getElementById(`msg-${target}-${index}`);
+      if (msgEl.contentEditable === 'true') {
+        // 저장하기
+        const list = JSON.parse(localStorage.getItem(target) || '[]');
+        list[index] = msgEl.innerText;
+        localStorage.setItem(target, JSON.stringify(list));
+        msgEl.contentEditable = 'false';
+      } else {
+        msgEl.contentEditable = 'true';
+        msgEl.focus();
+      }
+    }
+
+    // 초기 로드
+    loadEntries('jjin');
+    loadEntries('ssom');
   </script>
 </body>
 </html>
