@@ -1,23 +1,18 @@
 <body>
-  <section class="gallery-page">
-    <h2>📷 1관: 사진관</h2>
-    <p>우리의 추억이 담긴 사진들을 전시해 두었어요.</p>
-
-    <div class="photo-gallery">
-      <div class="photo-item">
-        <img src="img/photo1.jpg" alt="사진 1" />
-        <p class="caption">하루 필름 찍은 날 💕</p>
-      </div>
-      <div class="photo-item">
-        <img src="img/photo2.jpg" alt="사진 2" />
-        <p class="caption">컬러런의 추억 😄</p>
-      </div>
-      <div class="photo-item">
-        <img src="img/photo3.jpg" alt="사진 3" />
-        <p class="caption">매튜 생카 같이 가준 너 🌸</p>
-      </div>
+  <div class="polaroid-gallery">
+    <div class="polaroid">
+      <img src="img/photo1.jpg" alt="우리 사진 1">
+      <p class="caption">하루 필름 찍은 날 💕</p>
     </div>
-  </section>
+    <div class="polaroid">
+      <img src="img/photo2.jpg" alt="우리 사진 2">
+      <p class="caption">컬러런의 추억 😄</p>
+    </div>
+    <div class="polaroid">
+      <img src="img/photo3.jpg" alt="우리 사진 3">
+      <p class="caption">매튜 생카 같이 가준 너 🌸</p>
+    </div>
+  </div>
 
   <!-- ✅ Lightbox는 반드시 바깥에! -->
   <div id="lightbox" class="lightbox">
@@ -28,7 +23,7 @@
   <script>
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
-    const images = document.querySelectorAll(".photo-item img");
+    const images = document.querySelectorAll(".polaroid img");
 
     images.forEach(img => {
       img.addEventListener("click", () => {
