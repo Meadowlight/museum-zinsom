@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1관: 사진관</title>
-  <link rel="stylesheet" href="css/style.css" />
-</head>
 <body>
   <section class="gallery-page">
     <h2>📷 1관: 사진관</h2>
@@ -26,5 +18,27 @@
       </div>
     </div>
   </section>
+
+  <!-- ✅ Lightbox는 반드시 바깥에! -->
+  <div id="lightbox" class="lightbox">
+    <img id="lightbox-img" src="" alt="확대된 사진">
+  </div>
+
+  <!-- JS 넣기 -->
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const images = document.querySelectorAll(".photo-item img");
+
+    images.forEach(img => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = "flex";
+      });
+    });
+
+    lightbox.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+  </script>
 </body>
-</html>
