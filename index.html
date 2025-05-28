@@ -67,5 +67,28 @@
 
   <!-- 자바스크립트 -->
   <script src="js/main.js"></script>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+
+<!-- 너가 만든 JS 파일 -->
+<script src="js/guestbook.js"></script>
+const firebaseConfig = {
+  apiKey: "AIza....", // 네 Firebase 콘솔에서 복사
+  authDomain: "zzinsom-diary.firebaseapp.com",
+  projectId: "zzinsom-diary",
+  storageBucket: "zzinsom-diary.appspot.com",
+  messagingSenderId: "1234567890",
+  appId: "1:1234567890:web:abcdef123456"
+};  
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+  
 </body>
 </html>
