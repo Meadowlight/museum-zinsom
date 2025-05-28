@@ -17,8 +17,9 @@
     h1 {
       font-family: 'Cafe24Ssurround', sans-serif;
       color: #5ab0e9;
-      margin-bottom: 10px;
       text-align: center;
+      margin-bottom: 20px;
+      font-size: 28px;
     }
 
     .guestbook-container {
@@ -26,67 +27,77 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 40px;
-      margin-top: 40px;
     }
 
     .guest-section {
       background: #ffffff;
       border: 2px solid #d6f0ff;
-      border-radius: 12px;
-      width: 300px;
+      border-radius: 16px;
+      width: 320px;
       padding: 20px;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     }
 
     .guest-section h2 {
       color: #5ab0e9;
       margin-bottom: 10px;
       font-size: 20px;
+      text-align: center;
     }
 
     .guest-section textarea {
       width: 100%;
       height: 100px;
-      padding: 10px;
+      padding: 12px;
       font-family: 'Cafe24Oneprettynight';
       font-size: 14px;
       border: 1px solid #ddd;
-      border-radius: 6px;
+      border-radius: 10px;
       resize: none;
+      box-sizing: border-box;
     }
 
     .guest-section button {
       margin-top: 10px;
-      padding: 6px 12px;
+      padding: 8px 16px;
       background-color: #5ab0e9;
       color: white;
       border: none;
       border-radius: 6px;
       cursor: pointer;
+      font-family: 'Cafe24Ssurround';
     }
 
     .entry {
-      background: #f0faff;
-      padding: 10px;
-      border-radius: 8px;
-      margin-top: 10px;
       position: relative;
-      transition: background-color 0.2s ease;
+      background: #f0faff;
+      padding: 12px 16px;
+      border-radius: 12px;
+      margin-top: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      text-align: left;
+    }
+
+    .entry .msg {
+      white-space: pre-wrap;
+      padding-right: 60px;
+      font-size: 14px;
+      line-height: 1.4;
     }
 
     .entry .actions {
       position: absolute;
       top: 8px;
-      right: 8px;
+      right: 10px;
     }
 
     .entry .actions button {
-      margin-left: 4px;
       font-size: 12px;
       background: none;
       border: none;
       color: #5ab0e9;
       cursor: pointer;
+      font-family: 'Cafe24Oneprettynight';
     }
 
     .entry[contenteditable="true"] {
@@ -96,18 +107,19 @@
   </style>
 </head>
 <body>
-  <h1>🌼 우리의 작은 일기장</h1>
+  <h1>🌷우리의 작은 일기장🌷</h1>
+
   <div class="guestbook-container">
     <div class="guest-section" id="to-jjin">
-      <h2>🎀 찐에게</h2>
-      <textarea id="input-jjin" placeholder="😊 하고 싶은 말을 작성해보세요."></textarea>
+      <h2>🎀찐에게</h2>
+      <textarea id="input-jjin" placeholder="✏️하고 싶은 말을 작성해보세요."></textarea>
       <button onclick="addEntry('jjin')">작성</button>
       <div id="entries-jjin"></div>
     </div>
 
     <div class="guest-section" id="to-ssom">
-      <h2>🎀 솜에게</h2>
-      <textarea id="input-ssom" placeholder="😊 하고 싶은 말을 작성해보세요."></textarea>
+      <h2>🎀솜에게</h2>
+      <textarea id="input-ssom" placeholder="✏️하고 싶은 말을 작성해보세요."></textarea>
       <button onclick="addEntry('ssom')">작성</button>
       <div id="entries-ssom"></div>
     </div>
@@ -153,7 +165,7 @@
       const msgEl = document.getElementById(`msg-${target}-${index}`);
       if (msgEl.contentEditable === 'true') {
         const list = JSON.parse(localStorage.getItem(target) || '[]');
-        list[index] = msgEl.innerText;
+        list[index] = msgEl.innerText.trim();
         localStorage.setItem(target, JSON.stringify(list));
         msgEl.contentEditable = 'false';
       } else {
@@ -162,7 +174,6 @@
       }
     }
 
-    // 초기 로드
     loadEntries('jjin');
     loadEntries('ssom');
   </script>
